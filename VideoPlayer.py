@@ -27,6 +27,13 @@ class VideoPlayer(QMainWindow):
         self.video_label = QLabel()
         self.setCentralWidget(self.video_label)
 
+        # Set up the menu bar
+        menubar = self.menuBar()
+        file_menu = menubar.addMenu("File")
+        playback_menu = menubar.addMenu("Playback")
+        filter_menu = menubar.addMenu("Filter")
+        histogram_menu = menubar.addMenu("Histogram")
+
         self.play_button = QPushButton("Play")
         self.pause_button = QPushButton("Pause")
         self.stop_button = QPushButton("Stop")
@@ -45,8 +52,6 @@ class VideoPlayer(QMainWindow):
         toolbar.addWidget(self.stop_button)
         toolbar.addWidget(self.previous_button)
         toolbar.addWidget(self.next_button)
-
-        self.statusBar()
 
         # Set up the timer
         self.timer = QTimer(self)
